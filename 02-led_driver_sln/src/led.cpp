@@ -1,4 +1,6 @@
 #include "led.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 // ========================= GPIO =========================
 
@@ -30,19 +32,19 @@ bool Gpio::read() const { return gpio_get_level(pin_); }
 // ========================= SINGLE-COLOR LED =========================
 
 SingleColorLed::SingleColorLed(gpio_num_t pin, Configuration config)
-    : gpio_(pin) {
+    : gpio_(pin, GPIO_MODE_OUTPUT, GPIO_PULLUP_DISABLE, GPIO_PULLDOWN_DISABLE, GPIO_INTR_DISABLE) {
     config_ = config;
 }
 
 void SingleColorLed::on() {
-    if (config_ == Configuration::CommonCathode)
+    if (config_ == Configuration::CommonAnode)
         gpio_.set_high();
     else
         gpio_.set_low();
 }
 
 void SingleColorLed::off() {
-    if (config_ == Configuration::CommonCathode)
+    if (config_ == Configuration::CommonAnode)
         gpio_.set_low();
     else
         gpio_.set_high();
@@ -80,9 +82,15 @@ void MultiColorLed::off() {
 
 // TODO: Implement the MultiColorLed::set_color() method
 void MultiColorLed::set_color(bool red, bool green, bool blue) {
-    if (red)   red_.on();   else red_.off();
-    if (green) green_.on(); else green_.off();
-    if (blue)  blue_.on();  else blue_.off();
+    // Turn off all colors first
+    red_.off();
+    green_.off();
+    blue_.off();
+    
+    // Turn on requested colors
+    if (red)   red_.on();
+    if (green) green_.on();
+    if (blue)  blue_.on();
 }
 
 // TODO: Implement the MultiColorLed::toggle() method

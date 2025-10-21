@@ -58,16 +58,34 @@ void SingleColorLed::toggle() {
 // ========================= MULTI-COLOR LED =========================
 
 // TODO: Implement the MultiColorLed class constructor
-
+MultiColorLed::MultiColorLed(gpio_num_t red_pin, gpio_num_t green_pin, gpio_num_t blue_pin,
+                             Configuration config)
+    : red_(red_pin, config),
+      green_(green_pin, config),
+      blue_(blue_pin, config) {
+    // apply the config
+}
 
 // TODO: Implement the MultiColorLed::on() method
-
+void MultiColorLed::on() {
+    // turn on all colors
+}
 
 // TODO: Implement the MultiColorLed::off() method
-
+void MultiColorLed::off() {
+    // turn off all colors
+}
 
 // TODO: Implement the MultiColorLed::set_color() method
-
+void MultiColorLed::set_color(bool red, bool green, bool blue) {
+    // Turn off all colors first
+    
+    
+    // Turn on requested colors
+    
+}
 
 // TODO: Implement the MultiColorLed::toggle() method
-
+void MultiColorLed::toggle() {
+    // toggle all the colors
+}

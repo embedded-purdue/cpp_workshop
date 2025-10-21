@@ -65,3 +65,15 @@ private:
  * - A set_color(bool red, bool green, bool blue) method that allows setting
  *   each color individually.
  */
+class MultiColorLed : public Led {
+public:
+    // implement the constructor here
+
+    void on() override;
+    void off() override;
+    void toggle() override;
+    void set_color(bool red, bool green, bool blue);
+
+private:
+    // add the red_, green_, and blue_ Gpio members here
+};

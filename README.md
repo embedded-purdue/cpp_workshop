@@ -1,5 +1,4 @@
 # Embedded C++ Workshop
-**Hosted by Embedded Systems @ Purdue (ES@P)**
 
 [Slides](https://docs.google.com/presentation/d/1YdjXo4bXQZLM8vI7Et5yl3VB8MPnTD0fWMCR_XoaUjk/edit?usp=sharing)
 
@@ -29,3 +28,9 @@ _Please do this before coming to the workshop!_
 Please see the [hello world](01_hello-world/README.md) example to ensure that it builds. If it does, you are good to go for the workshop.
 
 If not, send me a message on discord (.aa_battery).
+
+## Exercises
+- [01-hello_world](01-hello_world/README.md) - Make sure your environment is set up correctly
+- [02-led_driver](02-led_driver/README.md) - Write a simple LED driver
+- [03-proximity_indicator](03-proximity_indicator/README.md) - Write an app for a proximity sensor
+- [04-data_logger](04-data_logger/README.md) - Design a data logger system

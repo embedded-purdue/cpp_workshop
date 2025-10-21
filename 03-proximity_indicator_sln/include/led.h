@@ -1,6 +1,8 @@
 #pragma once
 #include "driver/gpio.h"
 
+namespace driver {
+
 // === GPIO ===
 class Gpio {
 public:
@@ -73,3 +75,5 @@ private:
     SingleColorLed green_;
     SingleColorLed blue_;
 };
+
+} // namespace driver

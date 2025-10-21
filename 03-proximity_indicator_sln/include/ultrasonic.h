@@ -3,6 +3,7 @@
 #include "esp_timer.h"
 #include <cstdint>
 
+namespace driver {
 
 class UltrasonicSensor {
 public:
@@ -49,3 +50,5 @@ private:
     // Convert pulse duration to distance in cm
     float pulse_to_distance(uint32_t pulse_duration_us);
 };
+
+} // namespace driver
